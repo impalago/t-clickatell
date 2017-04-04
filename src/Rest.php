@@ -70,9 +70,10 @@ class Rest
             }
 
             throw new \Clickatell\ClickatellException($error);
-        } else {
-            return json_decode($result, true);
         }
+
+        return json_decode($result, true);
+
     }
 
     /**
@@ -128,8 +129,7 @@ class Rest
      */
     public function sendMessage(array $message)
     {
-        $response = $this->curl('messages', $message);
-        return $response['messages'];
+        return $this->curl('messages', $message);
     }
 
     /**
